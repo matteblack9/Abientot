@@ -1243,12 +1243,12 @@ textarea:-moz-placeholder {
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #999999;
+  color: #000000;
 }
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #999999;
+  color: #000000;
 }
 
 .radio,
