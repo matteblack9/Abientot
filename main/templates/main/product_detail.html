@@ -90,11 +90,10 @@
 								<h4><strong>Price: ${{product.price}}</strong></h4>
 							</div>
 							<div class="span5">
-								<form class="form-inline">
+								<form method = "POST" class="post-form">{% csrf_token %}
 									<p>&nbsp;</p>
-									<label>Qty:</label>
-									<input type="text" class="span1" placeholder="1">
-									<button class="btn btn-inverse" type="submit">Add to cart</button>
+									{{ form.as_p }}
+									<button class="btn btn-inverse" type="submit" name="add_cart">Add to cart</button>
 								</form>
 							</div>
 						</div>
