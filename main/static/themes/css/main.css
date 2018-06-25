@@ -13,7 +13,7 @@ label, input, button, select, textarea{
 }
 ul li a,a{
 	color:#333;
-	outline:0; 
+	outline:0;
 	-webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
     -o-transition: all 0.2s linear;
@@ -81,8 +81,8 @@ section.navbar,
 section.google_map,
 section#footer-bar,
 section#copyright{
-	margin-left: -10px; 
-	margin-right: -10px;	
+	margin-left: -10px;
+	margin-right: -10px;
 }
 section.header_text{
 	background:url(../images/bg_h.png) no-repeat bottom;
@@ -98,7 +98,7 @@ section.homepage-slider{
 	position: relative;
 	top:0;
 	z-index:99;
-	border-bottom:2px solid #ddd;	
+	border-bottom:2px solid #ddd;
 	background-color:#efeeed;
 	min-height:100px;
 }
@@ -124,7 +124,7 @@ section.homepage-slider p{
 }
 section.homepage-slider span{
 	background-color:#fff;
-	color:#000;	
+	color:#000;
 	padding:2px 10px;
 	line-height:30px;
 	font-size:28px;
@@ -137,7 +137,7 @@ section.header_text.sub{
 }
 section.header_text.sub h4{
 	text-transform:uppercase;
-	margin:0;	
+	margin:0;
 }
 iframe{
 	border-bottom:2px solid #eee;
@@ -169,7 +169,7 @@ iframe{
 #top-bar .user-menu li:last-child{
 	border-right:0;
 }
-/* footer 
+/* footer
 ----------------------------------------------------------------------------- */
 section#footer-bar,
 section#copyright{
@@ -208,7 +208,7 @@ section#footer-bar a{
 }
 section#footer-bar  a:hover{
 	color:#999;
-	text-decoration:underline;	
+	text-decoration:underline;
 }
 section#footer-bar  .nav a{
 	background: url(../images/trigger_right.png) no-repeat 5px 7px;
@@ -218,7 +218,7 @@ section#footer-bar h4 {
 	font-size: 16px;
 	color: #fff;
 	font-weight:normal;
-	margin: 10px 0 18px;	
+	margin: 10px 0 18px;
 }
 section#footer-bar .social_icons a {
 	display: block;
@@ -260,7 +260,7 @@ section#copyright{
 	background-color:#111111;
 	color:#fff;
 	font-size:10px;
-	text-transform:uppercase;	
+	text-transform:uppercase;
 }
 /* end footer */
 
@@ -269,18 +269,18 @@ section#copyright{
 section.navbar{
 	margin-bottom:0;
 }
-.navbar-inner.main-menu {	
+.navbar-inner.main-menu {
 	height: 40px;
-	padding-left:10px;	
-	padding-right:0;	
+	padding-left:10px;
+	padding-right:0;
 	border-right: 0;
 	border-left: 0;
 	border-top: 0;
 	border-bottom:5px solid #eb4800;
 	-webkit-border-radius: 0;
-	-moz-border-radius: 0;	
+	-moz-border-radius: 0;
 	border-radius: 0;
-	filter: none;	
+	filter: none;
 }
 .navbar-inner.main-menu a.logo{
 	position:absolute;
@@ -293,12 +293,12 @@ section.navbar{
 }
 #menu > ul{
     display: block;
-    margin-left:0;	
+    margin-left:0;
 }
 #menu > ul > li{
     list-style: none;
     float: left;
-    position: relative;   
+    position: relative;
 	margin-right: 0px;
 }
 #menu > ul > li > a {
@@ -317,7 +317,7 @@ section.navbar{
 	color:#fff;
 }
 #menu > ul a:hover{
-	color: #eb4800; 
+	color: #eb4800;
 	text-decoration:none;
 }
 #menu .current{color: #eb4800 !important;}
@@ -376,23 +376,23 @@ section.navbar{
 /* feature box
 ----------------------------------------------------------------------------- */
 .feature_box{
-	margin-bottom:20px;	
+	margin-bottom:20px;
 }
 .feature_box h4{
 	margin:0 0 10px 0;
-	font-weight:normal;	
+	font-weight:normal;
 }
-.feature_box img{	
+.feature_box img{
 	margin-bottom:10px;
 	background-color:#eb4800;
 	padding:25px;
 	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;	
+	-moz-border-radius: 50%;
 	border-radius: 50%;
 }
-.feature_box .service{	
+.feature_box .service{
 	margin-top:3px;
-	padding:3px;	
+	padding:3px;
 	text-align:center;
 }
 .feature_box .service:hover{
@@ -404,7 +404,7 @@ section.navbar{
 	transition: all 0.7s;
 	transform: rorate(6.28rad);
 }
-.feature_box .service div{	
+.feature_box .service div{
 	padding:5px 5px 0 5px;
 }
 /* end feature box */
@@ -476,7 +476,7 @@ h4.title{
 	width:100%;
 }
 h4.title.m{
-	margin-top:15px;	
+	margin-top:15px;
 	overflow:hidden;
 	width:100%;
 }
@@ -488,15 +488,15 @@ h4.title span.text{
 	padding-right:10px;
 }
 h4.title .left{
-	background: url(../images/arrow-pleft.png) #eee no-repeat center center;	
-	margin-right:2px;	
+	background: url(../images/arrow-pleft.png) #eee no-repeat center center;
+	margin-right:2px;
 }
 h4.title .right{
-	background: url(../images/arrow-p.png) #eee no-repeat center center;	
+	background: url(../images/arrow-p.png) #eee no-repeat center center;
 }
 h4.title .pull-right{
 	background-color:#fff;
-	padding-left:10px;	
+	padding-left:10px;
 }
 h4.title .left,h4.title .right{
 	display: inline-block;
@@ -528,7 +528,7 @@ section.our_client .row{
 	background: url(../images/search.png) #fff no-repeat 97% 6px;
 	color:#fff;
 	text-shadow:none;
-	padding-right:25px;	
+	padding-right:25px;
 	border:1px solid #eee;
 }
 #homeTab{
@@ -623,7 +623,7 @@ section.our_client .row{
 }
 /* end Product Detail */
 
-/* Block 
+/* Block
 ----------------------------------------------------------------------------- */
 .block {
 	text-align: center;
@@ -655,7 +655,7 @@ section.our_client .row{
 .block h4{
 	background: url(../images/bg_h.png) no-repeat bottom left;
 	margin: 0 0 20px 0;
-	border-bottom:1px solid #eee;	
+	border-bottom:1px solid #eee;
 }
 /* end Block */
 
@@ -674,7 +674,7 @@ section.our_client .row{
 .nav-list > .active > a, .nav-list > .active > a:hover{
 	background-color: transparent;
 	color:#eb4800;
-	text-shadow: none;	
+	text-shadow: none;
 	font-weight: bold;
 }
 
@@ -683,7 +683,7 @@ section.our_client .row{
 ._toggleMenu{
 	margin:0 -10px;
 	display:none;
-	background:#eb4800;	
+	background:#eb4800;
 }
 ._toggleMenu a{
 	color:#fff;
@@ -708,9 +708,9 @@ section.our_client .row{
 }
 .toggleMenu {
 	display:block;
-	width:100%;    
+	width:100%;
     padding:10px 0;
-	text-align:center;	
+	text-align:center;
 	font-weight:bold;
 	background:url(../images/i_submenu.png) no-repeat 98% center;
 }
@@ -730,7 +730,7 @@ section.our_client .row{
 
 /* Responsive
 ----------------------------------------------------------------------------- */
-@media (max-width: 767px){	
+@media (max-width: 767px){
 	#top-bar input{
 		*padding-right:0 !important;
 	}
@@ -750,7 +750,7 @@ section.our_client .row{
 	}
 	.product-box{
 		padding-top:10px;
-		padding-bottom:10px;		
+		padding-bottom:10px;
 	}
 	.product-box:hover{
 		background-color:#f8f8f8;
@@ -772,7 +772,7 @@ section.our_client .row{
 		background-color:transparent;
 		color:#eb4800;
 	}
-	.feature_box .service{	
+	.feature_box .service{
 		border-bottom:1px solid #eee;
 	}
 }
