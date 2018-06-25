@@ -71,6 +71,9 @@
 					<div class="span9">
 						<h4 class="title"><span class="text"><strong>Your</strong> Cart</span></h4>
 						<table class="table table-striped">
+							<script>
+								var totalPrice = 0;
+							</script>
 							<thead>
 								<tr>
 									<th>Remove</th>
@@ -92,6 +95,9 @@
 										<td><input type="text" placeholder={{ cart.quantity }} class="input-mini"></td>
 										<td>{{ cart.product.price }}</td>
 										<td>{{ cart.total }}</td>
+										<script>
+											totalPrice = totalPrice + {{ cart.total }};
+										</script>
 									</tr>	
 								{% endfor %}
 								<tr>
@@ -100,7 +106,7 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td><strong>$3,600.00</strong></td>
+									<td><strong><script>document.write(totalPrice);</script></strong></td>
 								</tr>
 							</tbody>
 						</table>
@@ -124,7 +130,6 @@
 						<hr/>
 						<p class="buttons center">
 							<button class="btn" type="button">Update</button>
-							<button class="btn" type="button">Continue</button>
 							<button class="btn btn-inverse" type="submit" id="checkout">Checkout</button>
 						</p>
 					</div>
