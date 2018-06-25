@@ -39,8 +39,6 @@ def register(request):
     categorys = Category.objects.all()
     context = {'categorys': categorys}
     return render(request, 'main/register.html', context)
-<<<<<<< HEAD
-=======
 
 def search(request):
     products = Product.objects.all()
@@ -48,4 +46,3 @@ def search(request):
     products = products.filter(title__icontains = quer)
     context = {'products':products}
     return render(request, 'main/index.html', context )
->>>>>>> upstream/master
