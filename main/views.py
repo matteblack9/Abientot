@@ -1,8 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from .models import Product, Category, Cart
+<<<<<<< HEAD
 from django.conf import settings
 from .forms import UserForm,CartForm
+=======
+from .forms import UserForm, CartForm
+# Create your views here.
+>>>>>>> fa756152f38d7d2656ea2043afe327ecf194e5c1
 
 def index(request):
     buyertype = request.POST.get('buyer_')
@@ -36,22 +41,13 @@ def contact(request):
     context = {'categorys': categorys}
     return render(request, 'main/contact.html', context)
 
-"""
-def product_details(request, productcode):
-	products = Product.objects.filter(productcode = productcode)
-	categorys = Category.objects.all()
-	form = CartForm()
-	context = {'products':products, 'productcode':productcode,'categorys': categorys, 'form': form}
-	return render(request, 'main/product_detail.html', context)
-"""
-	
 def product_details(request, productcode):
 	products = Product.objects.filter(productcode = productcode)
 	product = get_object_or_404(Product, pk=productcode)
 	categorys = Category.objects.all()
 	if request.method == "POST":
 		form = CartForm(request.POST)
-		
+
 		tmp = Cart.objects.filter(product = product)
 		if form.is_valid():
 			cart = form.save(commit=False)
@@ -71,10 +67,17 @@ def product_details(request, productcode):
 
 	context = {'products':products, 'productcode':productcode,'categorys': categorys, 'form': form}
 	return render(request, 'main/product_detail.html', context)
+<<<<<<< HEAD
 	
 def products(request):
+=======
+
+def products(request, title):
+>>>>>>> fa756152f38d7d2656ea2043afe327ecf194e5c1
     categorys = Category.objects.all()
-    context = {'categorys': categorys}
+    category = Category.objects.get(title=title)
+    products = Product.objects.filter(category=category)
+    context = {'categorys':categorys, 'products':products}
     return render(request, 'main/products.html', context)
 
 def cart(request):

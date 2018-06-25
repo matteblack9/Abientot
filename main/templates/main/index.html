@@ -31,8 +31,12 @@
 		<div id="top-bar" class="container">
 			<div class="row">
 				<div class="span4">
+<<<<<<< HEAD
 					<form method="post" name=searchf class="search_form" action="/">
 						
+=======
+					<form method="post" name=searchf class="search_form" action="/">{% csrf_token %}
+>>>>>>> fa756152f38d7d2656ea2043afe327ecf194e5c1
 						<input type="text" name=searchStr class="input-inline-level search-query" style="color:#000000">
 						<button value="Submit" class="btn btn-inverse" name = "submit" type="submit">Search</button>
 					</form>
@@ -60,7 +64,7 @@
 					<nav id="menu" class="pull-right">
 						<ul>
 							{% for category in categorys %}
-							<li><a href="/products">{{category.title}}</a></li>
+							<li><a href="/products/{{category.title}}">{{category.title}}</a></li>
 							{% endfor %}
 						</ul>
 					</nav>
