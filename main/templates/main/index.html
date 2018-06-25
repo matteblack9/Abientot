@@ -111,16 +111,19 @@
 									<div class="carousel-inner">
 										<div class="active item">
 											<ul class="thumbnails">
+												{% for product in products%}
 												<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
-														<p><a href="/product_detail"><img src="/static/themes/images/ladies/1.jpg" alt="" /></a></p>
-														<a href="/product_detail" class="title">Ut wisi enim ad</a><br/>
-														<a href="/products" class="category">Commodo consequat</a>
-														<p class="price">$17.25</p>
+														{% if product.image %}
+														<p><a href="/product_detail"><img src="{{ product.image.url}}" alt="" /></a></p>
+														{% endif %}
+														<a href="/product_detail" class="title">{{product.title}}</a><br/>
+														<a href="/products" class="category">{{product.category}}</a>
+														<p class="price">${{product.price}}</p>
 													</div>
 												</li>
-												<li class="span3">
+												<!-- <li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
 														<p><a href="/product_detail"><img src="/static/themes/images/ladies/2.jpg" alt="" /></a></p>
@@ -144,7 +147,8 @@
 														<a href="/products" class="category">World once</a>
 														<p class="price">$31.45</p>
 													</div>
-												</li>
+												</li> -->
+												{% endfor %}
 											</ul>
 										</div>
 										<div class="item">
@@ -271,35 +275,6 @@
 												</li>
 											</ul>
 										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row feature_box">
-							<div class="span4">
-								<div class="service">
-									<div class="responsive">
-										<img src="/static/themes/images/feature_img_2.png" alt="" />
-										<h4>MODERN <strong>DESIGN</strong></h4>
-										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
-									</div>
-								</div>
-							</div>
-							<div class="span4">
-								<div class="service">
-									<div class="customize">
-										<img src="/static/themes/images/feature_img_1.png" alt="" />
-										<h4>FREE <strong>SHIPPING</strong></h4>
-										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
-									</div>
-								</div>
-							</div>
-							<div class="span4">
-								<div class="service">
-									<div class="support">
-										<img src="/static/themes/images/feature_img_3.png" alt="" />
-										<h4>24/7 LIVE <strong>SUPPORT</strong></h4>
-										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
 									</div>
 								</div>
 							</div>

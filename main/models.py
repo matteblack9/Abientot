@@ -1,19 +1,22 @@
 from django.db import models
 from django.utils import timezone
 
+# Create your models here.
 
-class Post(models.Model):
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
-    created_date = models.DateTimeField(
-            default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
+class Category(models.Model):
+    title = models.CharField(max_length=255, null=True)
+    def __str__(self):
+        return self.title
 
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
+class Product(models.Model):
+    title = models.CharField(max_length=255, null=True)
+    image=models.ImageField(upload_to="media/", null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
+    price = models.CharField(max_length=30, null=True)
+    brand = models.CharField(max_length=255, null=True)
+    productcode = models.CharField(max_length=10, primary_key=True)
+    rewardpoint = models.CharField(max_length=30, null=True)
+    availability = models.CharField(max_length=30, null=True)
 
     def __str__(self):
         return self.title

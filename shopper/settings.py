@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'main',
 ]
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 #정적파일이 위치한 경로들을 지정하는 설정 항목
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # List of finder classes that know how to find static files in
 # various locations.
