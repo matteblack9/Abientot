@@ -5,30 +5,37 @@ from .models import Product, Category
 
 def index(request):
     products = Product.objects.all()
-    context = {'products':products}
+    categorys = Category.objects.all()
+    context = {'products':products, 'categorys': categorys}
     return render(request, 'main/index.html', context)
 
 def checkout(request):
-    return render(request, 'main/checkout.html')
+    categorys = Category.objects.all()
+    context = {'categorys': categorys}
+    return render(request, 'main/checkout.html', context)
 
 def contact(request):
-    return render(request, 'main/contact.html')
+    categorys = Category.objects.all()
+    context = {'categorys': categorys}
+    return render(request, 'main/contact.html', context)
 
-def product_detail(request):
-    return render(request, 'main/product_detail.html')
+def product_details(request, productcode):
+    products = Product.objects.filter(productcode = productcode)
+    categorys = Category.objects.all()
+    context = {'products':products, 'productcode':productcode,'categorys': categorys}
+    return render(request, 'main/product_detail.html', context)
 
 def products(request):
-    return render(request, 'main/products.html')
+    categorys = Category.objects.all()
+    context = {'categorys': categorys}
+    return render(request, 'main/products.html', context)
 
 def cart(request):
-    return render(request, 'main/cart.html')
+    categorys = Category.objects.all()
+    context = {'categorys': categorys}
+    return render(request, 'main/cart.html', context)
 
 def register(request):
-    return render(request, 'main/register.html')
-
-def search(request):
-    products = Product.objects.all()
-    quer = request.GET.get('quer','')
-    products = products.filter(title__icontains = quer)
-    context = {'products' : products}
-    return render(request, 'main/cart.html', context)
+    categorys = Category.objects.all()
+    context = {'categorys': categorys}
+    return render(request, 'main/register.html', context)

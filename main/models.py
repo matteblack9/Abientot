@@ -17,6 +17,6 @@ class Product(models.Model):
     productcode = models.CharField(max_length=10, primary_key=True)
     rewardpoint = models.CharField(max_length=30, null=True)
     availability = models.CharField(max_length=30, null=True)
-
+    description = models.TextField(blank=True, null=True)
     def __str__(self):
         return self.title
