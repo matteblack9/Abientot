@@ -25,3 +25,10 @@ def cart(request):
 
 def register(request):
     return render(request, 'main/register.html')
+
+def search(request):
+    products = Product.objects.all()
+    quer = request.GET.get('quer','')
+    products = products.filter(title__icontains = quer)
+    context = {'products' : products}
+    return render(request, 'main/cart.html', context)
