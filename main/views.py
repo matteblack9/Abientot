@@ -1,12 +1,20 @@
 from django.shortcuts import render
 from django.conf import settings
 from .models import Product, Category
+from .forms import UserForm
 # Create your views here.
 
 def index(request):
+    submitbutton = request.POST.get('submit')
+    string=""
+    form=UserForm(request.POST or None)
     products = Product.objects.all()
+    if form.is_valid():
+        string=form.cleaned_data.get('searchStr')
+        products = Product.objects.filter(title=string)
+
     categorys = Category.objects.all()
-    context = {'products':products, 'categorys': categorys}
+    context = {'form':form, 'string':string, 'submitbutton':submitbutton,'products':products, 'categorys': categorys}
     return render(request, 'main/index.html', context)
 
 def checkout(request):
@@ -39,10 +47,3 @@ def register(request):
     categorys = Category.objects.all()
     context = {'categorys': categorys}
     return render(request, 'main/register.html', context)
-
-def search(request):
-    products = Product.objects.all()
-    quer = request.GET.get('quer', '')
-    products = products.filter(title__icontains = quer)
-    context = {'products':products}
-    return render(request, 'main/index.html', context )
