@@ -32,12 +32,10 @@
 		<div id="top-bar" class="container">
 			<div class="row">
 					<div class="span4">
-							<div class = "input-group">
-								<input class = "form-control" placeholder = "eg. T-shirt">
-								<span class = "input-group-btn">
-										<button class="btn btn-secondary" type = "button">Search</button>
-								</span>	
-							</div>
+						<form method="post" name=searchf class="search_form" action="/">{% csrf_token %}
+							<input type="text" name=searchStr class="input-inline-level search-query" style="color:#000000">
+							<button value="Submit" class="btn btn-inverse" name = "submit" type="submit">Search</button>
+						</form>
 					</div>
 				<div class="span8">
 					<div class="account pull-right">
