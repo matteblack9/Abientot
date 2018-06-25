@@ -11,9 +11,8 @@ urlpatterns=[
     url(r'^cart/$', views.cart, name='cart'),
     url(r'^checkout/$', views.checkout, name='checkout'),
     url(r'^contact/$', views.contact, name='contact'),
-    url(r'^index/product_details/(?P<productcode>.+)/$', views.product_details, name='product_details'),
     url(r'^product_details/(?P<productcode>.+)/$', views.product_details, name='product_details'),
-    url(r'^products/$', views.products, name='products'),
+    url(r'^products/(?P<title>.+)/$', views.products, name='products'),
     url(r'^register/$', views.register, name='register'),
     # url(r'^quer', views.search, name = 'search'),
 ]

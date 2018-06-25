@@ -32,7 +32,6 @@
 			<div class="row">
 				<div class="span4">
 					<form method="post" name=searchf class="search_form" action="/">{% csrf_token %}
-						
 						<input type="text" name=searchStr class="input-inline-level search-query" style="color:#000000">
 						<button value="Submit" class="btn btn-inverse" name = "submit" type="submit">Search</button>
 					</form>
@@ -56,7 +55,7 @@
 					<nav id="menu" class="pull-right">
 						<ul>
 							{% for category in categorys %}
-							<li><a href="/products">{{category.title}}</a></li>
+							<li><a href="/products/{{category.title}}">{{category.title}}</a></li>
 							{% endfor %}
 						</ul>
 					</nav>
