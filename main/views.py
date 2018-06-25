@@ -1,13 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from django.conf import settings
-<<<<<<< HEAD
-from .models import Product, Category
-from .forms import UserForm
-# Create your views here.
-=======
 from .models import Product, Category, Cart
-from .forms import CartForm
->>>>>>> 35b5e9da8da2ec4683feb7298cb2ae155664f37c
+from django.conf import settings
+from .forms import UserForm,CartForm
 
 def index(request):
     submitbutton = request.POST.get('submit')
@@ -16,7 +10,7 @@ def index(request):
     products = Product.objects.all()
     if form.is_valid():
         string=form.cleaned_data.get('searchStr')
-        products = Product.objects.filter(title=string)
+        products = Product.objects.filter(title__iexact=string)
 
     categorys = Category.objects.all()
     context = {'form':form, 'string':string, 'submitbutton':submitbutton,'products':products, 'categorys': categorys}
@@ -88,12 +82,3 @@ def register(request):
     categorys = Category.objects.all()
     context = {'categorys': categorys}
     return render(request, 'main/register.html', context)
-<<<<<<< HEAD
-=======
-
-def search(request):
-    quer = request.GET.get('quer', '')
-    products = Product.objects.filter(title__icontains = quer)
-    context = {'products':products}
-    return render(request, 'main/search.html', context )
->>>>>>> 35b5e9da8da2ec4683feb7298cb2ae155664f37c
