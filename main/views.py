@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.conf import settings
+from .models import Product, Category
 # Create your views here.
 
 def index(request):
-    return render(request, 'main/index.html')
+    products = Product.objects.all()
+    context = {'products':products}
+    return render(request, 'main/index.html', context)
 
 def checkout(request):
     return render(request, 'main/checkout.html')
