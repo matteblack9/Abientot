@@ -1,14 +1,18 @@
-<<<<<<< HEAD
-from django.shortcuts import render, get_object_or_404
-=======
 from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
->>>>>>> a30ec6d6c1dbcc716340e2c0addac960da1c2876
 from .models import Product, Category, Cart
 from django.conf import settings
 from .forms import UserForm,CartForm
 
 def index(request):
+    buyertype = request.POST.get('buyer_')
+    sellertype = request.POST.get('seller_')
+    
+    usertype = 3
+    if sellertype:
+        usertype = 2
+    check_ = 2
+
     submitbutton = request.POST.get('submit')
     string=""
     form=UserForm(request.POST or None)
@@ -18,7 +22,8 @@ def index(request):
         products = Product.objects.filter(title__iexact=string)
 
     categorys = Category.objects.all()
-    context = {'form':form, 'string':string, 'submitbutton':submitbutton,'products':products, 'categorys': categorys}
+    context = {'form':form, 'string':string, 'submitbutton':submitbutton,
+    'products':products, 'categorys': categorys, 'type' : usertype, 'check_' : check_}
     return render(request, 'main/index.html', context)
 
 def checkout(request):
@@ -73,7 +78,6 @@ def products(request):
     return render(request, 'main/products.html', context)
 
 def cart(request):
-	print('asdasd')
 	carts = Cart.objects.all()
 	categorys = Category.objects.all()
 	context = {'categorys': categorys, 'carts' : carts}
@@ -83,6 +87,3 @@ def register(request):
     categorys = Category.objects.all()
     context = {'categorys': categorys}
     return render(request, 'main/register.html', context)
-
-def account(request):
-    return render(request, 'main/account.html', )

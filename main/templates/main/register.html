@@ -38,7 +38,7 @@
 				<div class="span8">
 					<div class="account pull-right">
 						<ul class="user-menu">
-							<li><a href="#">My Account</a></li>
+							<li><a href="/account">My Account</a></li>
 							<li><a href="/cart">Your Cart</a></li>
 							<li><a href="/checkout">Checkout</a></li>
 							<li><a href="/register">Login</a></li>
@@ -74,18 +74,31 @@
 								<div class="control-group">
 									<label class="control-label">Username</label>
 									<div class="controls">
-										<input type="text" placeholder="Enter your username" id="username" class="input-xlarge">
+											<input type="text" placeholder="Enter your username" id="username" class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">Username</label>
+										<label class="control-label">Username</label>
 									<div class="controls">
-										<input type="password" placeholder="Enter your password" id="password" class="input-xlarge">
+											<input type="password" placeholder="Enter your password" id="password" class="input-xlarge">
 									</div>
 								</div>
-								<div class="control-group">
-									<input tabindex="3" class="btn btn-inverse large" type="submit" value="Sign into your account">
-									<hr>
+								<div class="control-group" action= "/index">
+									<form method="post" name="choicewhat">
+										<button value="buyer" class="btn btn-inverse" name = "buyer_" type="submit">Sign in as Buyer</button>
+										<button value="seller" class="btn btn-inverse" name = "seller_" type="submit">Sign in as Seller</button>
+									</form>
+								<!-- <div class = "span2">
+									<form method="get" name=buyer_ class="register_buyer_form" action="/index">
+									<input tabindex="3"  class="btn btn-inverse large" type="submit" name = "buyer" value="Sign in as Buyer">
+									</form>
+								</div>
+					
+								<div>
+									<form method="get" name=seller_ class="register_seller_form" action="/index">
+									<input tabindex="3"   class="btn btn-inverse large" type="submit" name = "seller" value="Sign in as Seller">
+									</form>
+								</div> -->
 									<p class="reset">Recover your <a tabindex="4" href="#" title="Recover your username or password">username or password</a></p>
 								</div>
 							</fieldset>
@@ -113,6 +126,13 @@
 										<input type="password" placeholder="Enter your password" class="input-xlarge">
 									</div>
 								</div>
+								<div class="control-group">
+										<label class="control-label">Type:</label>
+										<div class="controls">
+											<input type="radio" name = "chk_info" value = "Buyer" checked = "checked">  Buyer
+											<input type="radio" name = "chk_info" value = "Seller">  Seller
+										</div>
+									</div>
 								<div class="control-group">
 									<p>Now that we know who you are. I'm not a mistake! In a comic, you know how you can tell who the arch-villain's going to be?</p>
 								</div>
