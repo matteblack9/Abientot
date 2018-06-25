@@ -45,4 +45,4 @@ def search(request):
     quer = request.GET.get('quer', '')
     products = products.filter(title__icontains = quer)
     context = {'products':products}
-    return render(request, 'main/search.html', context )
+    return render(request, 'main/index.html', context )
