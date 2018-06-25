@@ -82,30 +82,18 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td><input type="checkbox" value="option1"></td>
-									<td><a href="product_detail"><img alt="" src="/static/themes/images/ladies/9.jpg"></a></td>
-									<td>Fusce id molestie massa</td>
-									<td><input type="text" placeholder="1" class="input-mini"></td>
-									<td>$2,350.00</td>
-									<td>$2,350.00</td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" value="option1"></td>
-									<td><a href="product_detail"><img alt="" src="/static/themes/images/ladies/1.jpg"></a></td>
-									<td>Luctus quam ultrices rutrum</td>
-									<td><input type="text" placeholder="2" class="input-mini"></td>
-									<td>$1,150.00</td>
-									<td>$2,450.00</td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" value="option1"></td>
-									<td><a href="product_detail"><img alt="" src="/static/themes/images/ladies/3.jpg"></a></td>
-									<td>Wuam ultrices rutrum</td>
-									<td><input type="text" placeholder="1" class="input-mini"></td>
-									<td>$1,210.00</td>
-									<td>$1,123.00</td>
-								</tr>
+								{% for cart in carts %}
+									<tr>
+										<td><input type="checkbox" value="option1"></td>
+										{% if cart.product.image %}
+										<td><a href="/product_detail"><img src="{{ cart.product.image.url}}" alt="" /></a></td>
+										{% endif %}
+										<td>{{ cart.product.title }}</td>
+										<td><input type="text" placeholder={{ cart.quantity }} class="input-mini"></td>
+										<td>{{ cart.product.price }}</td>
+										<td>{{ cart.total }}</td>
+									</tr>	
+								{% endfor %}
 								<tr>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>

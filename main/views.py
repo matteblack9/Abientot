@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
-from .models import Product, Category
+from .models import Product, Category, Cart
 # Create your views here.
 
 def index(request):
@@ -31,9 +31,10 @@ def products(request):
     return render(request, 'main/products.html', context)
 
 def cart(request):
-    categorys = Category.objects.all()
-    context = {'categorys': categorys}
-    return render(request, 'main/cart.html', context)
+	carts = Cart.objects.all()
+	categorys = Category.objects.all()
+	context = {'categorys': categorys, 'carts' : carts}
+	return render(request, 'main/cart.html', context)
 
 def register(request):
     categorys = Category.objects.all()
@@ -43,5 +44,5 @@ def register(request):
 def search(request):
     quer = request.GET.get('quer', '')
     products = Product.objects.filter(title__icontains = quer)
-    context = {'products':products}
-    return render(request, 'main/search.html', context )
+    context = {'products':products, 'quer':quer}
+    return render(request, 'main/index.html', context )

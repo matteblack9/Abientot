@@ -20,3 +20,14 @@ class Product(models.Model):
     description = models.TextField(blank=True, null=True)
     def __str__(self):
         return self.title
+
+class Cart(models.Model):
+	product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+	quantity = models.IntegerField()
+	total = models.IntegerField()
+	
+	def publish(self):
+		self.save()
+	
+	def __str__(self):
+		return self.product.title
