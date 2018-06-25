@@ -41,8 +41,7 @@ def register(request):
     return render(request, 'main/register.html', context)
 
 def search(request):
-    products = Product.objects.all()
     quer = request.GET.get('quer', '')
-    products = products.filter(title__icontains = quer)
+    products = Product.objects.filter(title__icontains = quer)
     context = {'products':products}
-    return render(request, 'main/index.html', context )
+    return render(request, 'main/search.html', context )
