@@ -41,8 +41,14 @@ def register(request):
     context = {'categorys': categorys}
     return render(request, 'main/register.html', context)
 
+# def search(request):
+#     quer = request.GET.get('quer', '')
+#     products = Product.objects.filter(title__icontains = quer)
+#     context = {'products':products, 'quer':quer}
+#     return render(request, 'main/index.html', context )
+
 def search(request):
-    quer = request.GET.get('quer', '')
-    products = Product.objects.filter(title__icontains = quer)
-    context = {'products':products, 'quer':quer}
-    return render(request, 'main/index.html', context )
+    if request.method == 'GET':
+        book_name = request.GET['search']
+        status = Product.objects.filter(title = book_name)
+        return render(request, "main/index.html", {'items':status})

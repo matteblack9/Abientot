@@ -15,9 +15,5 @@ urlpatterns=[
     url(r'^product_details/(?P<productcode>.+)/$', views.product_details, name='product_details'),
     url(r'^products/$', views.products, name='products'),
     url(r'^register/$', views.register, name='register'),
-<<<<<<< HEAD
-    url(r'^(?P<quer>.+)/$', views.search, name = 'index'),
-=======
-    url(r'^search', views.search,name='search')
->>>>>>> 4e10e279397387f232241728ee6263c89c9ad3a7
+    url(r'^search/$', views.search, name='search'),
 ]

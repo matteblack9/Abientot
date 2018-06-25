@@ -31,9 +31,8 @@
       <div id="top-bar" class="container">
          <div class="row">
             <div class="span4">
-				<form action="" method = "get">
-					<input type = "text" name = "quer" value = "{{ quer }}">
-					<input type = "submit" value = "Search">
+				<form name = "mySearch" method="GET" action = "/search">
+					<input type = "text" name = "search" placeholder="Ex) T-shirt"/>
 				</form>
             </div>
             <div class="span8">
@@ -93,6 +92,24 @@
                            <div class="carousel-inner">
                               <div class="active item">
                                  <ul class="thumbnails">
+									{%if items%}
+										{% for product in items %}
+											<li class="span3">
+											<a href="product_details/{{product.productcode}}">
+											<div class="product-box">
+												<span class="sale_tag"></span>
+												{% if product.image %}
+												<p><img src="{{ product.image.url}}" alt="" /></p>
+												{% endif %}
+												<a href="product_details/{{product.productcode}}" class="title">{{product.title}}</a><br/>
+												<a href="product_details/{{product.productcode}}" class="category">{{product.category}}</a>
+												<p class="price">${{product.price}}</p>
+											</div>
+											</a>
+											</li>
+										{% endfor %}
+									{%endif%}
+
                                     {% for product in products %}
                                     <li class="span3">
                                        <a href="product_details/{{product.productcode}}">
