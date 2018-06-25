@@ -82,3 +82,6 @@ def register(request):
     categorys = Category.objects.all()
     context = {'categorys': categorys}
     return render(request, 'main/register.html', context)
+
+def account(request):
+    return render(request, 'main/account.html', )
