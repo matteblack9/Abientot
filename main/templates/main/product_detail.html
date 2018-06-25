@@ -39,12 +39,16 @@
 					</div>
 				<div class="span8">
 					<div class="account pull-right">
-						<ul class="user-menu">
-							<li><a href="/account">My Account</a></li>
-							<li><a href="/cart">Your Cart</a></li>
-							<li><a href="/checkout">Checkout</a></li>
-							<li><a href="/register">Login</a></li>
-						</ul>
+							<ul class="user-menu">
+									<li><a href="/account">My Account</a></li>
+									{% if type %}
+									<li><a href="/index">Enroll Product</a></li>
+									{% else %}
+									<li><a href="/index">Your Cart</a></li>
+									{% endif %}
+									<li><a href="/checkout">Checkout</a></li>
+									<li><a href="/register">Login</a></li>
+							</ul>
 					</div>
 				</div>
 			</div>

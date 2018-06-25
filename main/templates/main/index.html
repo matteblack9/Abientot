@@ -31,7 +31,8 @@
 		<div id="top-bar" class="container">
 			<div class="row">
 				<div class="span4">
-					<form method="post" name=searchf class="search_form" action="/">{% csrf_token %}
+					<form method="post" name=searchf class="search_form" action="/">
+						
 						<input type="text" name=searchStr class="input-inline-level search-query" style="color:#000000">
 						<button value="Submit" class="btn btn-inverse" name = "submit" type="submit">Search</button>
 					</form>
@@ -40,11 +41,11 @@
 					<div class="account pull-right">
 						<ul class="user-menu">
 							<li><a href="/account">My Account</a></li>
-							{% ifequal type check_ %}
+							{% if type %}
 								<li><a href="/index">Enroll Product</a></li>
 							{% else %}
-								<li><a href="/index">{{ type }}</a></li>
-							{% endifequal %}
+								<li><a href="/index">Your Cart</a></li>
+							{% endif %}
 							<li><a href="/checkout">Checkout</a></li>
 							<li><a href="/register">Login</a></li>
 						</ul>
@@ -59,7 +60,7 @@
 					<nav id="menu" class="pull-right">
 						<ul>
 							{% for category in categorys %}
-							<li><a href="/products/{{category.title}}">{{category.title}}</a></li>
+							<li><a href="/products">{{category.title}}</a></li>
 							{% endfor %}
 						</ul>
 					</nav>
