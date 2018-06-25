@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404
+=======
+from django.shortcuts import render, get_object_or_404, redirect
+from django.conf import settings
+>>>>>>> a30ec6d6c1dbcc716340e2c0addac960da1c2876
 from .models import Product, Category, Cart
 from django.conf import settings
 from .forms import UserForm,CartForm
@@ -53,19 +58,14 @@ def product_details(request, productcode):
 				tmp[0].total =  int(cart.total) + int(tmp[0].total)
 				tmp[0].quantity = int(cart.quantity) + int(tmp[0].quantity)
 				tmp[0].save()
+			context = {'products':products, 'productcode':productcode,'categorys': categorys, 'form': form}
+			return redirect('cart')
+
 	else:
 		form = CartForm()
 
 	context = {'products':products, 'productcode':productcode,'categorys': categorys, 'form': form}
 	return render(request, 'main/product_detail.html', context)
-"""
-def insertProductInCart(request, qty):
-	products = Product.objects.filter(productcode = productcode)
-    categorys = Category.objects.all()
-	products.save()
-	Cart.object.create(product=product, quantity=qty, total=qty*product.price
-    return render(request, 'main/cart.html', context)
-"""
 	
 def products(request):
     categorys = Category.objects.all()
@@ -73,6 +73,7 @@ def products(request):
     return render(request, 'main/products.html', context)
 
 def cart(request):
+	print('asdasd')
 	carts = Cart.objects.all()
 	categorys = Category.objects.all()
 	context = {'categorys': categorys, 'carts' : carts}

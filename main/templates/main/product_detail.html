@@ -91,7 +91,12 @@
 								<form method = "POST" class="post-form">{% csrf_token %}
 									<p>&nbsp;</p>
 									{{ form.as_p }}
-									<button class="btn btn-inverse" type="submit" name="add_cart">Add to cart</button>
+									<button class="btn btn-inverse" type="submit" onclick="button1_click();" name="add_cart">Add to cart</button>
+									<script>
+										function button1_click() {
+											alert("장바구니에 들어갔습니다.");
+										}
+									</script>
 								</form>
 							</div>
 						</div>
