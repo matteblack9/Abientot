@@ -15,9 +15,5 @@ urlpatterns=[
     url(r'^product_details/(?P<productcode>.+)/$', views.product_details, name='product_details'),
     url(r'^products/$', views.products, name='products'),
     url(r'^register/$', views.register, name='register'),
-<<<<<<< HEAD
-    url(r'^search/$', views.search, name='search'),
-=======
     # url(r'^quer', views.search, name = 'search'),
->>>>>>> 0e8581563a4da58d567bbeb2ef0602e6244234ff
 ]

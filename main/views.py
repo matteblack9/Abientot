@@ -1,11 +1,7 @@
 from django.shortcuts import render
 from django.conf import settings
-<<<<<<< HEAD
-from .models import Product, Category, Cart
-=======
 from .models import Product, Category
 from .forms import UserForm
->>>>>>> 0e8581563a4da58d567bbeb2ef0602e6244234ff
 # Create your views here.
 
 def index(request):
@@ -52,18 +48,3 @@ def register(request):
     categorys = Category.objects.all()
     context = {'categorys': categorys}
     return render(request, 'main/register.html', context)
-<<<<<<< HEAD
-
-# def search(request):
-#     quer = request.GET.get('quer', '')
-#     products = Product.objects.filter(title__icontains = quer)
-#     context = {'products':products, 'quer':quer}
-#     return render(request, 'main/index.html', context )
-
-def search(request):
-    if request.method == 'GET':
-        book_name = request.GET['search']
-        status = Product.objects.filter(title = book_name)
-        return render(request, "main/index.html", {'items':status})
-=======
->>>>>>> 0e8581563a4da58d567bbeb2ef0602e6244234ff
