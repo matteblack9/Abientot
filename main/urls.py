@@ -18,5 +18,6 @@ urlpatterns=[
     url(r'^products/$', views.products, name='products'),
     url(r'^register/$', views.register, name='register'),
     url(r'^enrollProd/$', views.enrollProd, name = 'enrollProd'),
+	url(r'^enroll_product/$', views.enroll_product, name='enroll_product'),
     # url(r'^quer', views.search, name = 'search'),
 ]

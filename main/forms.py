@@ -10,7 +10,7 @@ class CartForm(forms.ModelForm):
         fields = ('quantity',)
 
 class ProductForm(forms.ModelForm):
-    class Meta:
-        model = Product
-        fields = ('title', 'image', 'category', 
-        'price', 'brand', 'productcode', 'rewardpoint', 'availability', 'description',)
+	class Meta:
+		model = Product
+		fields = ('title', 'image', 'category', 'price', 'brand', 'productcode', 'rewardpoint', 'availability',
+				'description')
