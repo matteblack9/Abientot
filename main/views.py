@@ -21,15 +21,13 @@ def index(request):
     return render(request, 'main/index.html', context)
 
 def checkout(request):
-    sellertype = request.POST.get('seller_')
     categorys = Category.objects.all()
-    context = {'categorys': categorys, 'type' : sellertype}
+    context = {'categorys': categorys}
     return render(request, 'main/checkout.html', context)
 
 def contact(request):
-    sellertype = request.POST.get('seller_')
     categorys = Category.objects.all()
-    context = {'categorys': categorys, 'type' : sellertype }
+    context = {'categorys': categorys}
     return render(request, 'main/contact.html', context)
 
 def remove_item_from_cart(request, pk):
@@ -62,7 +60,7 @@ def product_details(request, productcode):
 				tmp[0].quantity = int(cart.quantity) + int(tmp[0].quantity)
 				tmp[0].save()
 			context = {'products':products, 'productcode':productcode,'categorys': categorys, 
-            'form': form, 'type' : sellertype}
+            'form': form}
 			return redirect('cart')
 
 	else:
@@ -72,17 +70,16 @@ def product_details(request, productcode):
 	return render(request, 'main/product_detail.html', context)
 
 def products(request, title):
-    sellertype = request.POST.get('seller_')
     categorys = Category.objects.all()
     category = Category.objects.get(title=title)
     products = Product.objects.filter(category=category)
-    context = {'categorys':categorys, 'products':products, 'type' : sellertype}
+    context = {'categorys':categorys, 'products':products}
     return render(request, 'main/products.html', context)
 
 def cart(request):
 	carts = Cart.objects.all()
 	categorys = Category.objects.all()
-	context = {'categorys': categorys, 'carts' : carts, 'type' : sellertype}
+	context = {'categorys': categorys, 'carts' : carts}
 	return render(request, 'main/cart.html', context)
 
 def register(request):
