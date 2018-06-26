@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from .models import Product, Category, Cart
-from .forms import UserForm,CartForm
+from .forms import UserForm,CartForm,ProductForm
 # Create your views here.
 
 def index(request):
@@ -78,3 +78,8 @@ def register(request):
     categorys = Category.objects.all()
     context = {'categorys': categorys, 'type' : sellertype}
     return render(request, 'main/register.html', context)
+
+def enrollProd(request):
+    if request.method == "POST":
+        form = ProductForm(request.POST)
+    return render(request, 'main/enrollProd.html', context)
