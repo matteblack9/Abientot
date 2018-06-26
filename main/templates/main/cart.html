@@ -87,12 +87,26 @@
 							<tbody>
 								{% for cart in carts %}
 									<tr>
-										<td><input type="checkbox" value="option1"></td>
+										<td><form action="" method="POST"><a href="/{{cart.pk}}/remove">
+											<input id="submit" type="button" value="remove" name="removebtn"></a>
+										</form></td>
 										{% if cart.product.image %}
 										<td><a href="/product_detail"><img src="{{ cart.product.image.url}}" alt="" /></a></td>
 										{% endif %}
 										<td>{{ cart.product.title }}</td>
-										<td><input type="text" placeholder={{ cart.quantity }} class="input-mini"></td>
+										<td><form action="" method="POST">
+											<input type="text" id="edt_quantity" placeholder="{{ cart.quantity }}" value = "{{ cart.quantity }}" 
+											class="input-mini">
+											<a id = "link"><input id="submit" type="button" value="edit" name="editbtn" 
+											onclick="edtbtn_click();"></form>
+											<script>
+												function edtbtn_click() {
+													var edt_quantity = document.getElementById("edt_quantity");
+													var strLink = "/{{cart.pk}}/edit_quantity/" + edt_quantity.value;
+													document.getElementById("link").setAttribute("href",strLink);
+												}
+											</script>
+										</a></td>
 										<td>{{ cart.product.price }}</td>
 										<td>{{ cart.total }}</td>
 										<script>

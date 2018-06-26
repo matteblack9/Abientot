@@ -19,15 +19,18 @@ def contact(request):
     context = {'categorys': categorys}
     return render(request, 'main/contact.html', context)
 
-"""
-def product_details(request, productcode):
-	products = Product.objects.filter(productcode = productcode)
-	categorys = Category.objects.all()
-	form = CartForm()
-	context = {'products':products, 'productcode':productcode,'categorys': categorys, 'form': form}
-	return render(request, 'main/product_detail.html', context)
-"""
-	
+def remove_item_from_cart(request, pk):
+	cart = get_object_or_404(Cart, pk=pk)
+	cart.delete()
+	return redirect('cart')
+
+def edit_quantity_of_cart(request, pk, edit_quantity):
+	cart = get_object_or_404(Cart, pk=pk)
+	cart.quantity = edit_quantity
+	cart.total = int(cart.quantity) * int(cart.product.price)
+	cart.save()
+	return redirect('cart')
+		
 def product_details(request, productcode):
 	products = Product.objects.filter(productcode = productcode)
 	product = get_object_or_404(Product, pk=productcode)
@@ -61,7 +64,6 @@ def products(request):
     return render(request, 'main/products.html', context)
 
 def cart(request):
-	print('asdasd')
 	carts = Cart.objects.all()
 	categorys = Category.objects.all()
 	context = {'categorys': categorys, 'carts' : carts}
