@@ -1,8 +1,185 @@
-{% load staticfiles %}
+ {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap E-commerce Templates</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
 
-<h1>New post</h1>
+		<!-- bootstrap -->
+		<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="/static/themes/css/bootstrappage.css" rel="stylesheet"/>
+
+		<!-- global styles -->
+		<link href="/static/themes/css/main.css" rel="stylesheet"/>
+		<link href="/static/themes/css/jquery.fancybox.css" rel="stylesheet"/>
+
+		<!-- scripts -->
+		<script src="/static/themes/js/jquery-1.7.2.min.js"></script>
+		<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/static/themes/js/superfish.js"></script>
+		<script src="/static/themes/js/jquery.scrolltotop.js"></script>
+		<script src="/static/themes/js/jquery.fancybox.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+    <body>
+		<div id="top-bar" class="container">
+			<div class="row">
+					<div class="span4">
+						<form method="post" name=searchf class="search_form" action="/">{% csrf_token %}
+							<input type="text" name=searchStr class="input-inline-level search-query" style="color:#000000">
+							<button value="Submit" class="btn btn-inverse" name = "submit" type="submit">Search</button>
+						</form>
+					</div>
+				<div class="span8">
+					<div class="account pull-right">
+							<ul class="user-menu">
+									<li><a href="/account">My Account</a></li>
+									{% if type %}
+									<li><a href="/index">Enroll Product</a></li>
+									{% else %}
+									<li><a href="/index">Your Cart</a></li>
+									{% endif %}
+									<li><a href="/checkout">Checkout</a></li>
+									<li><a href="/register">Login</a></li>
+							</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="wrapper" class="container">
+			<section class="navbar main-menu">
+				<div class="navbar-inner main-menu">
+					<a href="/index" class="logo pull-left"><img src="/static/themes/images/logo.png" class="site_logo" alt=""></a>
+					<nav id="menu" class="pull-right">
+						<ul>
+							{% for category in categorys %}
+							<li><a href="/products/{{category.title}}">{{category.title}}</a></li>
+							{% endfor %}
+						</ul>
+					</nav>
+				</div>
+			</section>
+			<section class="header_text sub">
+			<img class="pageBanner" src="/static/themes/images/pageBanner.png" alt="New products" >
+				<h4><span>Register Product</span></h4>
+			</section>
+			<section class="main-content">
+
+                 <style>
+                            #container {
+                              display: flex;
+                            }
+                            #box-left {
+                              flex: 7;
+                              margin-left: 10%
+                            }
+                            #box-center {
+                              flex: 1;
+                              text-align: center;
+                            }
+                            #box-right {
+                              flex: 8;
+                              text-align: left;
+                              margin-right: 10%
+                            }
+                            </style>
+                            <div id='container'>
+                                <div id='box-left'>
+                                        <form method="POST" class="search_form" enctype="multipart/form-data">{% csrf_token %}
+                                            {{ form.as_p }}
+                                            <button type="submit" class="save btn btn-default">Save</button>
+                                        </form>
+                                </div>
+                                <div id='box-center'></div>
+                                <div id='box-right'><h5>The Fire Safety Order</h5>
+                                    The Regulatory Reform (Fire Safety) Order 2005 came into effect on 1 October 2006. It replaced over 100 pieces of fire safety law – the most notable of which were the Fire Precautions Act 1971 and the Fire Precautions (Workplace) Regulations – with the intention of simplifying legislation. 
+                                    
+                                    The legislation involves a significant change of emphasis. Buildings will no longer be routinely inspected by the fire service to check if they are complying with the standards set down in the fire certificate. As a result, fire certificates are no longer issued or enforced. 
+                                    
+                                    The approach taken by the Fire Safety Order is similar to that adopted by current health and safety legislation and is based on risk assessments. Fire certification tended to ‘freeze’ the level of fire protection to the standard prevailing at the time the certificate was issued. In contrast, the new legislation is of a ‘dynamic’ nature, ensuring that fire safety measures are updated in the light of current experience, changes in use, or shortcomings revealed following a risk assessment. 
+                                    
+                                    The employer or manager needs to nominate a competent person to carry out the fire safety risk assessment and implement and maintain a fire management plan. In a shopping centre this means that there will be more than one responsible person – the tenant will be responsible for their shop and the landlord responsible for the common parts. Risk assessments are to be carried out at least annually or whenever there has been a change in the circumstances. As there is also an ongoing responsibility to continually monitor fire precautions, risk assessments in retail centres are likely to be undertaken more frequently than annually.
+                                    
+                                    While the responsibility for fire safety now rests with the operator, fire and rescue  services have extensive powers under the FSO. They can issue an alterations notice that would make it an offence to carry out any alterations that may affect the fire safety within the premises, without first notifying them. They can issue an enforcement notice to carry out work to improve the fire safety measures if they believe they are inadequate. This may be to insist on the removal of a mall kiosk they feel is located in the wrong area, or to require modifications to the fire alarm system if, for example, the standard of detection was not adequate. The landlord or occupier would then be required to carry out the necessary changes within a reasonable period. Ultimately they can issue a prohibition notice to close a building or part of the building, if they feel that the risk to occupants is imminently life threatening. Such a notice has immediate effect. In theory, this could occur if fundamental systems such as the sprinklers, smoke control or fire alarm were shown not to be working properly. In practice, the fire service would only issue a prohibition notice as a last resort; normally they would try to work with the building management to find a solution both in the interim and long term that can allow it to continue to trade.
+                                    
+                                    <h5>Impact on management</h5>
+                                    The FSO represents a significant change in the emphasis on how fire safety in buildings is managed and maintained, and responsibility for this rests entirely on the operator. However, it provides a more flexible framework for shopping centre owners, managers and tenants to manage fire safety within their premises, as it does not require strict adherence to prescriptive standards set down in a fire certificate. 
+                                    
+                                    The new legislation should be less restrictive once the building is occupied because changes within a building may be carried out – without first having to obtain approval from the fire service. However, a risk assessment would have to be carried out to ensure that fire safety is not compromised, and the results of this would need to be recorded and included in the fire safety manual for the centre.
+                                    
+                                        This allows landlords and tenants to make proactive choices based on their own experiences of what works well in their centre and what does not. It should not result in any drastic changes in the day to day running of a shopping centre, or impose more onerous expectations in terms of housekeeping, maintenance and testing. This is our experience from working with many shopping centre managers. It should be noted, however, that Building Regulations approval may still be needed for building work such as structural alterations. </div>
+                            </div>                 
+                    
+			</section>
+			<section id="footer-bar">
+				<div class="row">
+					<div class="span3">
+						<h4>Navigation</h4>
+						<ul class="nav">
+							<li><a href="/index">Homepage</a></li>
+							<li><a href="/about">About Us</a></li>
+							<li><a href="/contact">Contac Us</a></li>
+							<li><a href="/cart">Your Cart</a></li>
+							<li><a href="/register">Login</a></li>
+						</ul>
+					</div>
+					<div class="span4">
+						<h4>My Account</h4>
+						<ul class="nav">
+							<li><a href="/account">My Account</a></li>
+							<li><a href="#">Order History</a></li>
+							<li><a href="#">Wish List</a></li>
+							<li><a href="#">Newsletter</a></li>
+						</ul>
+					</div>
+					<div class="span5">
+						<p class="logo"><img src="/static/themes/images/logo.png" class="site_logo" alt=""></p>
+						<span class="social_icons">
+							<a class="facebook" href="#">Facebook</a>
+							<a class="twitter" href="#">Twitter</a>
+							<a class="skype" href="#">Skype</a>
+							<a class="vimeo" href="#">Vimeo</a>
+						</span>
+					</div>
+				</div>
+			</section>
+			<section id="copyright">
+			</section>
+		</div>
+		<script src="/static/themes/js/common.js"></script>
+		<script>
+			$(function () {
+				$('#myTab a:first').tab('show');
+				$('#myTab a').click(function (e) {
+					e.preventDefault();
+					$(this).tab('show');
+				})
+			})
+			$(document).ready(function() {
+				$('.thumbnail').fancybox({
+					openEffect  : 'none',
+					closeEffect : 'none'
+				});
+
+				$('#myCarousel-2').carousel({
+                    interval: 2500
+                });
+			});
+		</script>
+    </body>
+</html>
+
+
+
+<h1>Register Product</h1>
     <form method="POST" enctype="multipart/form-data">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
-

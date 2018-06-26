@@ -17,7 +17,6 @@ urlpatterns=[
 	url(r'^(?P<pk>.+)/edit_quantity/(?P<edit_quantity>.+)/$', views.edit_quantity_of_cart, name='edit_quantity_of_cart'),
     url(r'^products/(?P<title>.+)/$', views.products, name='products'),
     url(r'^register/$', views.register, name='register'),
-    url(r'^enrollProd/$', views.enrollProd, name = 'enrollProd'),
 	url(r'^enroll_product/$', views.enroll_product, name='enroll_product'),
     # url(r'^quer', views.search, name = 'search'),
 ]

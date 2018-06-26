@@ -87,11 +87,6 @@ def register(request):
     context = {'categorys': categorys}
     return render(request, 'main/register.html', context)
 
-def enrollProd(request):
-    if request.method == "POST":
-        form = ProductForm(request.POST)
-    return render(request, 'main/enrollProd.html', context)
-	
 def enroll_product(request):
 	if request.method == "POST":
 		form = ProductForm(request.POST, request.FILES)
