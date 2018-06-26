@@ -91,3 +91,15 @@ def enrollProd(request):
     if request.method == "POST":
         form = ProductForm(request.POST)
     return render(request, 'main/enrollProd.html', context)
+	
+def enroll_product(request):
+	if request.method == "POST":
+		form = ProductForm(request.POST, request.FILES)
+		if form.is_valid():
+			product = form.save(commit=False)
+			print(product.image)
+			product.save()	
+			return redirect('/', pk=product.pk)
+	else:
+		form = ProductForm()
+	return render(request, 'main/enroll_product.html', {'form': form})
