@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="span4">
 					<form method="post" name=searchf class="search_form" action="/">
-						
+						{% csrf_token %}
 						<input type="text" name=searchStr class="input-inline-level search-query" style="color:#000000">
 						<button value="Submit" class="btn btn-inverse" name = "submit" type="submit">Search</button>
 					</form>
@@ -43,11 +43,13 @@
 							<li><a href="/account">My Account</a></li>
 							{% if type %}
 								<li><a href="/enrollProd">Enroll Product</a></li>
+								<li><a href="/checkout">Checkout</a></li>
+								<li><a href="/register">Log Out</a></li>
 							{% else %}
 								<li><a href="/index">Your Cart</a></li>
+								<li><a href="/checkout">Checkout</a></li>
+								<li><a href="/register">Login</a></li>
 							{% endif %}
-							<li><a href="/checkout">Checkout</a></li>
-							<li><a href="/register">Login</a></li>
 						</ul>
 					</div>
 				</div>
@@ -60,7 +62,7 @@
 					<nav id="menu" class="pull-right">
 						<ul>
 							{% for category in categorys %}
-							<li><a href="/products">{{category.title}}</a></li>
+							<li><a href="/products/{{category.title}}">{{category.title}}</a></li>
 							{% endfor %}
 						</ul>
 					</nav>
@@ -83,17 +85,13 @@
 					</ul>
 				</div>
 			</section>
-			<section class="header_text">
-				We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates.
-				<br/>Don't miss to use our cheap abd best bootstrap templates.
-			</section>
 			<section class="main-content">
 				<div class="row">
 					<div class="span12">
 						<div class="row">
 							<div class="span12">
 								<h4 class="title">
-									<span class="pull-left"><span class="text"><span class="line">Feature <strong>Products</strong></span></span></span>
+									<span class="pull-left"><span class="text"><span class="line"> <strong>Products</strong></span></span></span>
 									<span class="pull-right">
 										<a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
 									</span>
@@ -127,29 +125,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="our_client">
-				<h4 class="title"><span class="text">Manufactures</span></h4>
-				<div class="row">
-					<div class="span2">
-						<a href="#"><img alt="" src="/static/themes/images/clients/14.png"></a>
-					</div>
-					<div class="span2">
-						<a href="#"><img alt="" src="/static/themes/images/clients/35.png"></a>
-					</div>
-					<div class="span2">
-						<a href="#"><img alt="" src="/static/themes/images/clients/1.png"></a>
-					</div>
-					<div class="span2">
-						<a href="#"><img alt="" src="/static/themes/images/clients/2.png"></a>
-					</div>
-					<div class="span2">
-						<a href="#"><img alt="" src="/static/themes/images/clients/3.png"></a>
-					</div>
-					<div class="span2">
-						<a href="#"><img alt="" src="/static/themes/images/clients/4.png"></a>
-					</div>
-				</div>
-			</section>
+			
 			<section id="footer-bar">
 				<div class="row">
 					<div class="span3">
@@ -173,7 +149,6 @@
 					</div>
 					<div class="span5">
 						<p class="logo"><img src="/static/themes/images/logo.png" class="site_logo" alt=""></p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
 						<br/>
 						<span class="social_icons">
 							<a class="facebook" href="#">Facebook</a>
@@ -185,7 +160,6 @@
 				</div>
 			</section>
 			<section id="copyright">
-				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
 			</section>
 		</div>
 		<script src="/static/themes/js/common.js"></script>

@@ -83,9 +83,8 @@ def cart(request):
 	return render(request, 'main/cart.html', context)
 
 def register(request):
-    sellertype = request.POST.get('seller_')
     categorys = Category.objects.all()
-    context = {'categorys': categorys, 'type' : sellertype}
+    context = {'categorys': categorys}
     return render(request, 'main/register.html', context)
 
 def enrollProd(request):
