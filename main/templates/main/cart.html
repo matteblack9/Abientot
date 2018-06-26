@@ -108,6 +108,7 @@
 										</a></td>
 										<td>{{ cart.product.price }}</td>
 										<td>{{ cart.total }}</td>
+										<script>totalPrice = totalPrice + {{ cart.total }} ;</script>
 									</tr>
 								{% endfor %}
 								<tr>
@@ -130,14 +131,6 @@
 							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
 							Estimate Shipping &amp; Taxes
 						</label>
-						<hr>
-						<p class="cart-total right">
-							<strong>Sub-Total</strong>:	$100.00<br>
-							<strong>Eco Tax (-2.00)</strong>: $2.00<br>
-							<strong>VAT (17.5%)</strong>: $17.50<br>
-							<strong>Total</strong>: $119.50<br>
-						</p>
-						<hr/>
 						<p class="buttons center">
 							<button class="btn" type="button">Update</button>
 							<button class="btn btn-inverse" type="submit" id="checkout">Checkout</button>

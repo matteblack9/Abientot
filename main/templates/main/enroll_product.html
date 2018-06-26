@@ -87,12 +87,12 @@
                             #box-right {
                               flex: 8;
                               text-align: left;
-                              margin-right: 10%
+                              margin-right:  10%
                             }
                             </style>
                             <div id='container'>
                                 <div id='box-left'>
-                                        <form method="POST" class="search_form" enctype="multipart/form-data">{% csrf_token %}
+                                        <form method="POST" enctype="multipart/form-data">{% csrf_token %}
                                             {{ form.as_p }}
                                             <button type="submit" class="save btn btn-default">Save</button>
                                         </form>

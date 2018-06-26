@@ -14,9 +14,3 @@ class ProductForm(forms.ModelForm):
 		model = Product
 		fields = ('title', 'image', 'category', 'price', 'brand', 'productcode', 'rewardpoint', 'availability',
 				'description')
-
-
-    # def __init__(self, *args, **kwargs):
-    #     super(ProductForm, self).__init__(*args, **kwargs) # Call to ModelForm constructor
-    #     self.fields['long_desc'].widget.attrs['cols'] = 10
-    #     self.fields['long_desc'].widget.attrs['rows'] = 20
