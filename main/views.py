@@ -32,6 +32,21 @@ def contact(request):
     context = {'categorys': categorys, 'type' : sellertype }
     return render(request, 'main/contact.html', context)
 
+<<<<<<< HEAD
+=======
+def remove_item_from_cart(request, pk):
+	cart = get_object_or_404(Cart, pk=pk)
+	cart.delete()
+	return redirect('cart')
+
+def edit_quantity_of_cart(request, pk, edit_quantity):
+	cart = get_object_or_404(Cart, pk=pk)
+	cart.quantity = edit_quantity
+	cart.total = int(cart.quantity) * int(cart.product.price)
+	cart.save()
+	return redirect('cart')
+		
+>>>>>>> 2191751dfe2e328a57ff0c3d14ce6eeeb7e5c458
 def product_details(request, productcode):
 	products = Product.objects.filter(productcode = productcode)
 	product = get_object_or_404(Product, pk=productcode)
